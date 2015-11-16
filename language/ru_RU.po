@@ -15,7 +15,13 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 
 msgid "Image maps"
-msgstr "Карты изображения"
+msgstr "Карты-изображения"
 
 msgid "Image map"
-msgstr "Карта изображение"
+msgstr "Карта-изображение"
+
+msgid "Description"
+msgstr "Описание карты"
+
+msgid "Upload file"
+msgstr "Загрузка карты"
