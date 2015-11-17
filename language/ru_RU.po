@@ -20,6 +20,9 @@ msgstr "Карты-изображения"
 msgid "Image map"
 msgstr "Карта-изображение"
 
+msgid "Name"
+msgstr "Название карты"
+
 msgid "Description"
 msgstr "Описание карты"
 
