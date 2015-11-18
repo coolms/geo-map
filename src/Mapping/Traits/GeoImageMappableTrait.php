@@ -34,7 +34,6 @@ trait GeoImageMappableTrait
      *          "should_create_template":true,
      *          "allow_add":true,
      *          "allow_remove":true,
-     *          "partial":"cms-geo-map/image-map/fieldset",
      *          "text_domain":"CmsGeoMap",
      *      }})
      */

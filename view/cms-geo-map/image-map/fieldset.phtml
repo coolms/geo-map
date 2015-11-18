@@ -10,5 +10,9 @@
 
 namespace CmsGeoMap;
 
-?>
-<?= $this->formCollection($this->fieldset, true, false);
+if ($this->fieldset->get('image')->get('id')->getValue()): ?>
+    <?= $this->cmsImage($this->fieldset->get('image')->get('id')->getValue(), ['height' => 100]); ?>
+<?php
+    $this->fieldset->remove('image');
+endif; ?>
+    <?= $this->formCollection($this->fieldset, true, false);
