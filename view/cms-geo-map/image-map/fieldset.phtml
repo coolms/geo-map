@@ -10,7 +10,7 @@
 
 namespace CmsGeoMap;
 
-if ($this->fieldset->get('image')->getObject()->getId()): ?>
+if ($this->fieldset->has('image') && $this->fieldset->get('image')->getObject()->getId()): ?>
     <?php /*$this->cmsImage($this->fieldset->get('image')->get('id')->getValue(), ['width' => 100]);*/ ?>
 <?php
     $this->fieldset->get('image')->setOption('render_mode', 'static');
