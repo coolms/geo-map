@@ -10,17 +10,10 @@
 
 namespace CmsGeoMap;
 
-/*$this->fieldset->setOption('twbs', [
-    'col' => ['class' => 'col-xs-12 col-md-8'],
+$this->fieldset->setOption('twbs', [
+    'element' => ['type' => 'formControl'],
+    'col'     => ['type' => 'formGroupCol', 'class' => 'col-xs-12 col-md-8'],
 ]);
-
-$this->fieldset->get('name')->setOption('twbs', [
-    'col' => ['class' => 'col-xs-12 col-md-8 col-md-push-4'],
-]);
-
-$this->fieldset->get('description')->setOption('twbs', [
-    'col' => ['class' => 'col-xs-12 col-md-8 col-md-push-4'],
-]);*/
 
 if ($this->fieldset->has('image') && $this->fieldset->get('image')->getObject()->getId()) {
     $this->fieldset->get('image')->setOption('render_mode', 'static')
@@ -36,4 +29,14 @@ if ($this->fieldset->has('image') && $this->fieldset->get('image')->getObject()-
         ]);
 }
 ?>
-<?= $this->formCollection($this->fieldset, true, false);
+<?php if ($this->wrap): ?>
+<fieldset data-counter="<?= $this->counter; ?>">
+  <?php if ($this->legend): ?><?= $this->legend; ?><?php endif; ?>
+<?php endif; ?>
+  <?= $this->row([
+      $this->formRow($this->fieldset->get('image')),
+      $this->formRow($this->fieldset, false, null, false)
+  ]); ?>
+<?php if ($this->wrap): ?>
+</fieldset>
+<?php endif;
