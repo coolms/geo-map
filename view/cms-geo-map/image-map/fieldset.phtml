@@ -22,6 +22,8 @@ if ($this->fieldset->has('image')):
         $image->setOption('render_mode', 'static')
             ->setOption('twbs', [
                 'element' => [
+                    'type' => 'element',
+                    'class'=> 'img-responsive',
                     'decorators' => [
                         'col' => ['placement' => false],
                     ],
