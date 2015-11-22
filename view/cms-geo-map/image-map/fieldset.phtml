@@ -10,33 +10,40 @@
 
 namespace CmsGeoMap;
 
-$this->fieldset->setOption('twbs', [
-    'element' => ['type' => 'formControl'],
-    'col'     => ['type' => 'formGroupCol', 'class' => 'col-xs-12 col-md-8'],
-]);
+if ($this->fieldset->has('image')):
+    $image = $this->fieldset->get('image');
 
-if ($this->fieldset->has('image') && $this->fieldset->get('image')->getObject()->getId()) {
-    $this->fieldset->get('image')->setOption('render_mode', 'static')
-        ->setOption('twbs', [
-            'element' => [
-                'decorators' => [
-                    'col' => ['placement' => false],
+    $this->fieldset->setOption('twbs', [
+        'element' => ['type' => 'formControl'],
+        'col'     => ['type' => 'formGroupCol', 'class' => 'col-xs-12 col-md-8'],
+    ]);
+
+    if ($image->getObject()->getId()) {
+        $image->setOption('render_mode', 'static')
+            ->setOption('twbs', [
+                'element' => [
+                    'decorators' => [
+                        'col' => ['placement' => false],
+                    ],
                 ],
-            ],
-            'label' => ['placement' => false],
-            'col' => ['class' => 'col-xs-12 col-md-4'],
-            'row' => ['placement' => false],
-        ]);
-}
+                'label' => ['placement' => false],
+                'col' => ['class' => 'col-xs-12 col-md-4'],
+                'row' => ['placement' => false],
+            ]);
+    }
 ?>
 <?php if ($this->wrap): ?>
 <fieldset data-counter="<?= $this->counter; ?>">
   <?php if ($this->legend): ?><?= $this->legend; ?><?php endif; ?>
 <?php endif; ?>
   <?= $this->row([
-      $this->formRow($this->fieldset->get('image')),
+      $this->formRow($image),
       $this->formRow($this->fieldset, false, null, false)
   ]); ?>
 <?php if ($this->wrap): ?>
 </fieldset>
+<?php endif; ?>
+
+<?php else: ?>
+  <?= $this->formRow($this->fieldset, true, false); ?>
 <?php endif;
